@@ -1,3 +1,5 @@
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,10 +9,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var appInsights=require('applicationinsights');
-appInsights.setup('ee3891ff-7008-414d-b424-991439ab16b0');
+var appInsights = require('applicationinsights');
+appInsights.setup('45e0809c-4330-49e8-b794-bb1e83749b9f');
 appInsights.start();
-
 
 var app = express();
 
@@ -31,9 +32,9 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 app.use('/problem',function(){
   throw new Error('something is wrong!');
-
 });
 
 // error handler
@@ -49,3 +50,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
