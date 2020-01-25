@@ -31,7 +31,7 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-app.use('problem',function(){
+app.use('/problem',function(){
   throw new Error('something is wrong!');
 
 });
